@@ -89,8 +89,4 @@ void init() {
             perror("Invalid value for 'which'.\n");
             exit(1);
     }
-
-    // cleanup
-    remove("findFifoSend");
-    remove("findFifoReceive");
 }
