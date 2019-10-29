@@ -65,6 +65,22 @@ bool login(int to, int from, char *username) {
     return (fromPacket.acceptedFlag == '1');
 }
 
+void myStat(int socket, char *filePath) {
+    struct statWorkerInput toPacket;
+    toPacket.quitFlag = '0';
+    strcpy(toPacket.filePath, filePath);
+    write(socket, &toPacket, sizeof(toPacket));
+
+    struct statWorkerOutput fromPacket;
+    read(socket, &fromPacket, sizeof(fromPacket));
+    if (fromPacket.successFlag == '1') {
+        printf("File size: %ld.\n", fromPacket.stats.st_size);
+    } else {
+        printf("Stat failed!\n");
+    }
+    printf("Input another command: find, stat or quit.\n");
+}
+
 void parent(struct parentData data) {
     printf("master [%d] init with ", getpid());
     printf("workers: [%d, %d, %d]\n", data.loginPid, data.findPid, data.statPid);
@@ -108,6 +124,14 @@ void parent(struct parentData data) {
             case CMD_QUIT: {
                 quit(data, toFindWorker);
                 exit(0); // shouldn't even be able to get here, but CLion won't shut up
+                break;
+            }
+            case CMD_FIND: {
+                printf("Not implemented yet...\n");
+                break;
+            }
+            case CMD_STAT: {
+                myStat(data.statSocket, arg1);
                 break;
             }
             default:

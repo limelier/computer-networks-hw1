@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 
 void statWorker(int socket) {
     struct statWorkerInput input;
@@ -20,7 +21,8 @@ void statWorker(int socket) {
                 exit(0);
             }
             else {
-                // todo
+                output.successFlag = stat(input.filePath, &output.stats) == 0 ? '1' : '0';
+                write(socket, &output, sizeof(output));
             }
         }
     }

@@ -1,6 +1,8 @@
 #ifndef TEMA_1_UTIL_H
 #define TEMA_1_UTIL_H
 
+#include <sys/stat.h>
+
 struct parentData {
     int loginPid;
     int findPid;
@@ -29,7 +31,8 @@ struct statWorkerInput {
 };
 
 struct statWorkerOutput {
-    // todo
+    char successFlag;
+    struct stat stats;
 };
 
 struct loginWorkerInput {
