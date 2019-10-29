@@ -23,6 +23,8 @@
 void init() {
     int pipeMW[2], pipeWM[2], sockp[2];
 
+    remove(FIFO_TO_WORKER);
+    remove(FIFO_FROM_WORKER);
     int mkfifoResult1 = mkfifo(FIFO_TO_WORKER, 0666);
     int mkfifoResult2 = mkfifo(FIFO_FROM_WORKER, 0666);
     int pipeResult1 = pipe(pipeMW);
