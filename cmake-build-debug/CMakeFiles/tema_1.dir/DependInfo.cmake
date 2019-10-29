@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/limelier/college/retele/tema-1/init.c" "/home/limelier/college/retele/tema-1/cmake-build-debug/CMakeFiles/tema_1.dir/init.c.o"
-  "/home/limelier/college/retele/tema-1/main.c" "/home/limelier/college/retele/tema-1/cmake-build-debug/CMakeFiles/tema_1.dir/main.c.o"
-  "/home/limelier/college/retele/tema-1/parent.c" "/home/limelier/college/retele/tema-1/cmake-build-debug/CMakeFiles/tema_1.dir/parent.c.o"
+  "/home/limelier/college/retele/computer-networks-hw1/init.c" "/home/limelier/college/retele/computer-networks-hw1/cmake-build-debug/CMakeFiles/tema_1.dir/init.c.o"
+  "/home/limelier/college/retele/computer-networks-hw1/main.c" "/home/limelier/college/retele/computer-networks-hw1/cmake-build-debug/CMakeFiles/tema_1.dir/main.c.o"
+  "/home/limelier/college/retele/computer-networks-hw1/parent.c" "/home/limelier/college/retele/computer-networks-hw1/cmake-build-debug/CMakeFiles/tema_1.dir/parent.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

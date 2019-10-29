@@ -1,3 +1,3 @@
-/home/limelier/college/retele/tema-1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/limelier/college/retele/tema-1/cmake-build-debug/CMakeFiles/tema_1.dir
-/home/limelier/college/retele/tema-1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/limelier/college/retele/computer-networks-hw1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/limelier/college/retele/computer-networks-hw1/cmake-build-debug/CMakeFiles/tema_1.dir
+/home/limelier/college/retele/computer-networks-hw1/cmake-build-debug/CMakeFiles/edit_cache.dir
