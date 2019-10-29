@@ -5,9 +5,11 @@ struct parentData {
     int loginPid;
     int findPid;
     int statPid;
-
-    int *loginPipe;
-    int *statSockp;
+    int loginPipeSend;
+    int loginPipeReceive;
+    int statSocket;
+    char* findFifoSend;
+    char* findFifoReceive;
 };
 
 
