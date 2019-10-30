@@ -74,11 +74,31 @@ void myStat(int socket, char *filePath) {
     struct statWorkerOutput fromPacket;
     read(socket, &fromPacket, sizeof(fromPacket));
     if (fromPacket.successFlag == '1') {
-        printf("File size: %ld.\n", fromPacket.stats.st_size);
+        printf("File size: %ldB.\n", fromPacket.stats.st_size);
     } else {
         printf("Stat failed!\n");
     }
     printf("Input another command: find, stat or quit.\n");
+}
+
+bool myFind(int to, int from, char *searchPath, char *fileName, char *resultBuffer) {
+    struct findWorkerInput toPacket;
+    toPacket.quitFlag = 0;
+    strcpy(toPacket.searchPath, searchPath);
+    strcpy(toPacket.fileName, fileName);
+    write(to, &toPacket, sizeof(toPacket));
+
+    struct findWorkerOutput fromPacket;
+    read(from, &fromPacket, sizeof(fromPacket));
+    if (fromPacket.existsFlag == '1') {
+        printf("%s\n", fromPacket.filePath);
+        strcpy(resultBuffer, fromPacket.filePath);
+        return true;
+    } else {
+        printf("File does not exist. Please input another command: find, stat, quit.\n");
+        resultBuffer = NULL;
+        return false;
+    }
 }
 
 void parent(struct parentData data) {
@@ -127,7 +147,11 @@ void parent(struct parentData data) {
                 break;
             }
             case CMD_FIND: {
-                printf("Not implemented yet...\n");
+                char resultBuffer[2048];
+                bool result = myFind(toFindWorker, fromFindWorker, arg1, arg2, resultBuffer);
+                if (result) {
+                    myStat(data.statSocket, resultBuffer);
+                }
                 break;
             }
             case CMD_STAT: {
