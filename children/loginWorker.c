@@ -9,7 +9,7 @@
 char findUser(char *username) {
     char buffer[8192];
     int file = open("authorized_users.txt", O_CREAT);
-    // newline-separated values, incl. ending newline (LF, not CRLF!)
+    // usernames in file need to be surrounded by <angle_brackets> and not contain any themselves. alpha-numeric recommended.
 
     char searchString[strlen(username) + 1];
     strcpy(searchString, username);
